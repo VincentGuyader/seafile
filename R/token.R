@@ -12,7 +12,7 @@
 #' \dontrun{
 #' ask_seafile_api_token(seafile_url = "http://drop.legum.fr:8000/",username = "vincent@thinkr.fr")
 #' }
-ask_seafile_api_token <- function(username,password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()){
+ask_seafile_api_token <- function(username = rstudioapi::askForPassword(prompt = "username"),password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()){
   r <- httr::POST(url = glue::glue("{seafile_url}/api2/auth-token/"),
                   body=
                     list(

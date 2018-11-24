@@ -5,7 +5,7 @@
 #'
 #' @export
 #' @importFrom magrittr %>%
-#' @importFrom dplyr filter
+#' @importFrom dplyr filter pull
 get_repo_id <- function(name = "My Library",ll = list_libraries()){
     ll %>%
     filter(name == !!name) %>%

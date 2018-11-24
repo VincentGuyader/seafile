@@ -4,7 +4,8 @@
 \alias{ask_seafile_api_token}
 \title{ask for a token}
 \usage{
-ask_seafile_api_token(username, password = rstudioapi::askForPassword(),
+ask_seafile_api_token(username = rstudioapi::askForPassword(prompt =
+  "username"), password = rstudioapi::askForPassword(),
   seafile_url = get_seafile_url())
 }
 \arguments{

@@ -49,7 +49,6 @@ template_base <-
 #' @importFrom magrittr %>%
 #' @export
 #'
-#' @examples
 list_libraries <-
   function(seafile_url = get_seafile_url()  ,
            token = get_seafile_api_token()) {
