@@ -24,7 +24,7 @@ upload_file(path, repos_id_destination, arbo = "/",
 Upload a file in a seafile repos
 }
 \examples{
-/dontrun{
+\dontrun{
 upload_file(path = "file.txt",repos_id_destination = get_repo_id())
 
 }

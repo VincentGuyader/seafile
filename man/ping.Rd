@@ -18,5 +18,9 @@ pong as string if OK
 get ping using token
 }
 \examples{
-ping(seafile_url = "http://drop.legum.fr:8000/",token = ask_for_token(seafile_url = "http://drop.legum.fr:8000/",username = "vincent@thinkr.fr"))
+\dontrun{
+ping(seafile_url = "http://drop.legum.fr:8000/",
+token = ask_seafile_api_token(seafile_url = "http://drop.legum.fr:8000/",
+username = "vincent@thinkr.fr"))
+}
 }

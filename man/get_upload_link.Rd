@@ -18,7 +18,7 @@ get_upload_link(repos_id = get_repo_id(),
 Title
 }
 \examples{
-/dontrun{
+\dontrun{
 get_upload_link(repos_id = get_repo_id(name = "Pauline"))
 }
 }

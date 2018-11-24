@@ -5,6 +5,7 @@
 #'
 #' @export
 #' @importFrom magrittr %>%
+#' @importFrom dplyr filter
 get_repo_id <- function(name = "My Library",ll = list_libraries()){
     ll %>%
     filter(name == !!name) %>%
@@ -38,7 +39,7 @@ template_repos <-
 #' @export
 #'
 #' @examples
-#' /dontrun{
+#' \dontrun{
 #' get_upload_link(repos_id = get_repo_id(name = "Pauline"))
 #' }
 get_upload_link <- function(
@@ -61,7 +62,7 @@ get_upload_link <- function(
 #' @export
 #' @importFrom glue glue
 #' @examples
-#' /dontrun{
+#' \dontrun{
 #' upload_file(path = "file.txt",repos_id_destination = get_repo_id())
 #'
 #' }
