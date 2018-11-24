@@ -29,7 +29,6 @@ template_base <-
   function(base = "ping",
            seafile_url = get_seafile_url()  ,
            token = get_seafile_api_token()) {
-    # curl -H 'Authorization: Token 24fd3c026886e3121b2ca630805ed425c272cb96' -H 'Accept: application/json; indent=4' https://cloud.seafile.com/api2/repos/
 
     r <- httr::GET(
       glue::glue("{seafile_url}/api2/{base}/"),

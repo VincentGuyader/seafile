@@ -36,7 +36,7 @@ set_seafile_url <- function(url){
 
   delete_seafile_url()
   assert_that(is.character(url))
-  url %>% key_set_with_value(service = "seafil_url",password = .)
+  url %>% key_set_with_value(service = "seafile_url",password = .)
 
   url
 }
