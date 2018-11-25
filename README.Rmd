@@ -28,6 +28,4 @@ remotes::install_github("VincentGuyader/seafile")
 
 ## Example
 
-```{r eval=FALSE}
-seafile::list_libraries()
-```
+<https://vincentguyader.github.io/seafile/>
