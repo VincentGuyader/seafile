@@ -96,9 +96,27 @@ upload_file <- function(
 
   create_dir_r(dir = output_directory,repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
 
-  to_run <- glue::glue('curl -H "Authorization: Token {token}" -F file=@{basename(path)}   -F filename={basename(path)}   -F parent_dir={output_directory} {upload_link}' )
-  message(glue::glue("to run ={to_run}"))
-  system(to_run,wait = TRUE)
+httr::POST(
+    url = upload_link,
+    add_headers(Authorization = glue::glue("Token {token}")),
+    body = list(
+      file = httr::upload_file(path),
+      filename = basename(path),
+      parent_dir = output_directory
+    )
+  )
+
+
+
+
+  # to_run <- glue::glue('curl -H "Authorization: Token {token}" -F file=@{basename(path)}   -F filename={basename(path)}   -F parent_dir={output_directory} {upload_link}' )
+  # message(glue::glue("to run ={to_run}"))
+  # system(to_run,wait = TRUE)
+
+
+
+
+
 }
 
 
