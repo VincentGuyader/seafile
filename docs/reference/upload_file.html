@@ -103,8 +103,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>upload_file</span>(<span class='no'>path</span>, <span class='kw'>repos_id_destination</span> <span class='kw'>=</span> <span class='fu'><a href='get_repo_id.html'>get_repo_id</a></span>(), <span class='kw'>arbo</span> <span class='kw'>=</span> <span class='st'>"/"</span>,
-  <span class='kw'>seafile_url</span> <span class='kw'>=</span> <span class='fu'><a href='get_seafile_url.html'>get_seafile_url</a></span>(), <span class='kw'>token</span> <span class='kw'>=</span> <span class='fu'><a href='get_seafile_api_token.html'>get_seafile_api_token</a></span>(),
+    <pre class="usage"><span class='fu'>upload_file</span>(<span class='no'>path</span>, <span class='kw'>repos_id_destination</span> <span class='kw'>=</span> <span class='fu'><a href='get_repo_id.html'>get_repo_id</a></span>(),
+  <span class='kw'>output_directory</span> <span class='kw'>=</span> <span class='st'>"/"</span>, <span class='kw'>seafile_url</span> <span class='kw'>=</span> <span class='fu'><a href='get_seafile_url.html'>get_seafile_url</a></span>(),
+  <span class='kw'>token</span> <span class='kw'>=</span> <span class='fu'><a href='get_seafile_api_token.html'>get_seafile_api_token</a></span>(),
   <span class='kw'>upload_link</span> <span class='kw'>=</span> <span class='fu'><a href='get_upload_link.html'>get_upload_link</a></span>(<span class='kw'>repos_id</span> <span class='kw'>=</span> <span class='no'>repos_id_destination</span>,
   <span class='kw'>seafile_url</span> <span class='kw'>=</span> <span class='no'>seafile_url</span>, <span class='kw'>token</span> <span class='kw'>=</span> <span class='no'>token</span>))</pre>
     
@@ -118,6 +119,10 @@
     <tr>
       <th>repos_id_destination</th>
       <td><p>repo id destination</p></td>
+    </tr>
+    <tr>
+      <th>output_directory</th>
+      <td><p>path to directory in the repos</p></td>
     </tr>
     <tr>
       <th>seafile_url</th>
