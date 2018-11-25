@@ -1,4 +1,4 @@
-#' ask for a token
+#' ask seafile for a token
 #'
 #' @param seafile_url seafile base url
 #' @param username username
@@ -12,7 +12,8 @@
 #' \dontrun{
 #' ask_seafile_api_token(seafile_url = "http://drop.legum.fr:8000/",username = "vincent@thinkr.fr")
 #' }
-ask_seafile_api_token <- function(username = rstudioapi::askForPassword(prompt = "username"),password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()){
+ask_seafile_api_token <- function(username = rstudioapi::showPrompt(title = "username",message = "email"),
+                                  password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()){
   r <- httr::POST(url = glue::glue("{seafile_url}/api2/auth-token/"),
                   body=
                     list(
@@ -24,14 +25,18 @@ ask_seafile_api_token <- function(username = rstudioapi::askForPassword(prompt =
 
 }
 
-#' @title set_seafile_api_token
+#' @title set seafile api token
 #' @description  set the seafile api token
 #' @param token seafile api token
 #' @importFrom magrittr %>%
 #' @import assertthat
 #' @export
+#' @examples
+#'
+#' set_seafile_api_token(usename="mymail@domain.fr")
 set_seafile_api_token <- function(token,
-                                  username,password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()
+                                  username = rstudioapi::showPrompt(title = "username",message = "email")
+,password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()
 
                                   ){
 
@@ -59,7 +64,7 @@ set_seafile_api_token <- function(token,
 #' @export
 #'
 get_seafile_api_token <- function(ask=TRUE,
-                                  username=rstudioapi::askForPassword(prompt = "set username"),password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()
+                                  username = rstudioapi::showPrompt(title = "username",message = "email"),password = rstudioapi::askForPassword(),seafile_url=get_seafile_url()
 
 
                                   ){
