@@ -1,7 +1,7 @@
 #' get seafile url
 #'
 #' @param ask booleen ask if missing
-#'
+#' @import keyring
 #' @export
 #'
 get_seafile_url <- function(ask=TRUE){
