@@ -1,7 +1,8 @@
-#' get seafile url
+#' Get seafile URL
 #'
 #' @param ask booleen ask if missing
-#' @import keyring
+#' @importFrom  keyring key_get key_set_with_value
+#' @importFrom  rstudioapi askForPassword
 #' @export
 #'
 get_seafile_url <- function(ask=TRUE){
@@ -20,11 +21,12 @@ get_seafile_url <- function(ask=TRUE){
   }
 
 
-#' @title set_seafile_url
+#' @title Set seafile URL
 #' @description  set the seafile url
 #' @param url seafile url
 #' @importFrom magrittr %>%
 #' @import assertthat
+#' @importFrom  keyring key_set_with_value
 #' @export
 set_seafile_url <- function(url){
 
@@ -45,7 +47,7 @@ set_seafile_url <- function(url){
 
 
 
-#' @title update_seafile_url
+#' @title Update seafile URL
 #' @description  update the seafile api url
 #' @importFrom magrittr %>%
 #' @importFrom  keyring key_set_with_value
@@ -55,7 +57,7 @@ update_seafile_url <- function(){
   get_seafile_url() %>% key_set_with_value(service = "seafile_url",password = .)
 }
 
-#' @title delete_seafile_url
+#' @title Delete seafile URL
 #' @description  delete the seafile api url
 #' @importFrom  keyring key_delete
 #' @export

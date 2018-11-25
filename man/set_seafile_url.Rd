@@ -2,7 +2,7 @@
 % Please edit documentation in R/url.R
 \name{set_seafile_url}
 \alias{set_seafile_url}
-\title{set_seafile_url}
+\title{Set seafile URL}
 \usage{
 set_seafile_url(url)
 }

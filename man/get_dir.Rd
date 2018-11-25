@@ -2,14 +2,20 @@
 % Please edit documentation in R/vrac2.R
 \name{get_dir}
 \alias{get_dir}
-\title{Title}
+\title{Get directory}
 \usage{
-get_dir(base = "/", repos_id = get_repo_id(),
+get_dir(dir = "/", repos_id = get_repo_id(),
   seafile_url = get_seafile_url(), token = get_seafile_api_token())
 }
 \arguments{
-\item{token}{}
+\item{dir}{directory}
+
+\item{repos_id}{redos id}
+
+\item{seafile_url}{seafile url}
+
+\item{token}{seafile token}
 }
 \description{
-Title
+Get directory
 }

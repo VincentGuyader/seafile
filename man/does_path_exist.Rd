@@ -2,14 +2,20 @@
 % Please edit documentation in R/vrac2.R
 \name{does_path_exist}
 \alias{does_path_exist}
-\title{Title}
+\title{Does this path exist}
 \usage{
 does_path_exist(dir = "/", repos_id = get_repo_id(),
   seafile_url = get_seafile_url(), token = get_seafile_api_token())
 }
 \arguments{
-\item{token}{}
+\item{dir}{directory to techeckst}
+
+\item{repos_id}{redos id}
+
+\item{seafile_url}{seafile url}
+
+\item{token}{seafile token}
 }
 \description{
-Title
+Does this path exist
 }

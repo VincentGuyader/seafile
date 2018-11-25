@@ -2,22 +2,22 @@
 % Please edit documentation in R/token.R
 \name{get_seafile_api_token}
 \alias{get_seafile_api_token}
-\title{get seafile api token}
+\title{Get seafile api token}
 \usage{
 get_seafile_api_token(ask = TRUE,
-  username = rstudioapi::askForPassword(prompt = "set username"),
-  password = rstudioapi::askForPassword(),
+  username = rstudioapi::showPrompt(title = "username", message =
+  "email"), password = rstudioapi::askForPassword(),
   seafile_url = get_seafile_url())
 }
 \arguments{
 \item{ask}{booleen ask if missing}
 
-\item{username}{username}
+\item{username}{seafile username or email adress}
 
-\item{password}{password}
+\item{password}{seafile password}
 
 \item{seafile_url}{seafile base url}
 }
 \description{
-get seafile api token
+Get seafile api token
 }

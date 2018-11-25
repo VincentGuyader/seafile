@@ -2,7 +2,7 @@
 % Please edit documentation in R/url.R
 \name{get_seafile_url}
 \alias{get_seafile_url}
-\title{get seafile url}
+\title{Get seafile URL}
 \usage{
 get_seafile_url(ask = TRUE)
 }
@@ -10,5 +10,5 @@ get_seafile_url(ask = TRUE)
 \item{ask}{booleen ask if missing}
 }
 \description{
-get seafile url
+Get seafile URL
 }

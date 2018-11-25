@@ -2,7 +2,7 @@
 % Please edit documentation in R/url.R
 \name{update_seafile_url}
 \alias{update_seafile_url}
-\title{update_seafile_url}
+\title{Update seafile URL}
 \usage{
 update_seafile_url()
 }

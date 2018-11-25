@@ -1,7 +1,7 @@
-#' Title
+#' Get repo is
 #'
 #' @param name library name
-#' @param list_libraries all availables libraries
+#' @param ll all availables libraries see get_repo_id()
 #'
 #' @export
 #' @importFrom magrittr %>%
@@ -12,7 +12,7 @@ get_repo_id <- function(name = "My Library",ll = list_libraries()){
     pull(id)
 }
 
-
+#' @importFrom httr GET add_headers content
 template_repos <-
   function(
            repos_id,
@@ -30,7 +30,7 @@ template_repos <-
   }
 
 
-#' Title
+#' Get upload link
 #'
 #' @param repos_id redos id
 #' @param seafile_url seafile url
@@ -50,23 +50,22 @@ get_upload_link <- function(
   template_repos(repos_id = repos_id,base = "upload-link/?p=/&replace=0",seafile_url = seafile_url,token=token)
 }
 
-#' Title
+#' Get directory
 #'
-#' @param repos_id
-#' @param seafile_url
-#' @param token
+#' @param dir directory
+#' @param repos_id redos id
+#' @param seafile_url seafile url
+#' @param token seafile token
 #'
-#' @return
 #' @export
 #'
-#' @examples
 get_dir <- function(
-  base="/",
+  dir="/",
   repos_id =get_repo_id(),
   seafile_url = get_seafile_url()  ,
   token = get_seafile_api_token()){
 
-  template_repos(repos_id = repos_id,base = glue::glue("dir/?p={base}"),seafile_url = seafile_url,token=token) %>% bind_rows()
+  template_repos(repos_id = repos_id,base = glue::glue("dir/?p={dir}"),seafile_url = seafile_url,token=token) %>% bind_rows()
 }
 
 #' Upload a file in a seafile repos
@@ -76,6 +75,7 @@ get_dir <- function(
 #' @param seafile_url seafile url
 #' @param token seafile token
 #' @param upload_link upload link see get_upload_link()
+#' @param output_directory path to directory in the repos
 #'
 #' @export
 #' @importFrom glue glue
@@ -88,32 +88,29 @@ get_dir <- function(
 upload_file <- function(
   path,
   repos_id_destination= get_repo_id(),
-  arbo="/",
+  output_directory="/",
   seafile_url = get_seafile_url(),
   token = get_seafile_api_token(),
   upload_link = get_upload_link(repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
 ){
 
-  create_dir_r(dir = arbo,repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
+  create_dir_r(dir = output_directory,repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
 
-  to_run <- glue::glue('curl -H "Authorization: Token {token}" -F file=@{basename(path)}   -F filename={basename(path)}   -F parent_dir={arbo} {upload_link}' )
+  to_run <- glue::glue('curl -H "Authorization: Token {token}" -F file=@{basename(path)}   -F filename={basename(path)}   -F parent_dir={output_directory} {upload_link}' )
   message(glue::glue("to run ={to_run}"))
   system(to_run,wait = TRUE)
 }
 
 
 
-#' Title
+#' Create directory in a seafile repos
 #'
-#' @param dir
-#' @param repos_id
-#' @param seafile_url
-#' @param token
+#' @param dir directory to create
+#' @param repos_id redos id
+#' @param seafile_url seafile url
+#' @param token seafile token
 #'
-#' @return
-#' @export
 #'
-#' @examples
 create_dir <- function(
   dir="/",
   repos_id =get_repo_id(),
@@ -143,18 +140,18 @@ create_dir <- function(
 }
 
 
-#' create_dir recursive
+#' Create directory in a seafile repos
 #'
-#' @param dir
-#' @param repos_id
-#' @param seafile_url
-#' @param token
 #'
-#' @return
+#' @param dir directory to create
+#' @param repos_id redos id
+#' @param seafile_url seafile url
+#' @param token seafile token
+#'
 #' @export
+#' @importFrom magrittr %>%
 #' @importFrom purrr map map_chr
 #' @importFrom stringr str_split
-#' @examples
 create_dir_r <- function(dir="/",
                          repos_id =get_repo_id(),
                          seafile_url = get_seafile_url()  ,
@@ -170,22 +167,21 @@ create_dir_r <- function(dir="/",
 
 }
 
-#' Title
+#' Does this path exist
 #'
-#' @param dir
-#' @param repos_id
-#' @param seafile_url
-#' @param token
+#' @param dir directory to techeckst
+#' @param repos_id redos id
+#' @param seafile_url seafile url
+#' @param token seafile token
 #'
-#' @return
-#' @export
 #'
-#' @examples
 does_path_exist <- function(dir="/",
                             repos_id =get_repo_id(),
                             seafile_url = get_seafile_url()  ,
                             token = get_seafile_api_token()){
 
- ncol(get_dir(base = dir,repos_id = repos_id,seafile_url = seafile_url,token = token)) !=1
+ ncol(get_dir(dir = dir,
+              repos_id = repos_id,seafile_url = seafile_url,
+              token = token)) !=1
 
 }

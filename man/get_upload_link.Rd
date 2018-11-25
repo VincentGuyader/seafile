@@ -2,7 +2,7 @@
 % Please edit documentation in R/vrac2.R
 \name{get_upload_link}
 \alias{get_upload_link}
-\title{Title}
+\title{Get upload link}
 \usage{
 get_upload_link(repos_id = get_repo_id(),
   seafile_url = get_seafile_url(), token = get_seafile_api_token())
@@ -15,7 +15,7 @@ get_upload_link(repos_id = get_repo_id(),
 \item{token}{seafile token}
 }
 \description{
-Title
+Get upload link
 }
 \examples{
 \dontrun{

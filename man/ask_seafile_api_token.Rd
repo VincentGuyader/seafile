@@ -2,10 +2,11 @@
 % Please edit documentation in R/token.R
 \name{ask_seafile_api_token}
 \alias{ask_seafile_api_token}
-\title{ask for a token}
+\title{Ask seafile for a token}
 \usage{
-ask_seafile_api_token(username = rstudioapi::askForPassword(prompt =
-  "username"), password = rstudioapi::askForPassword(),
+ask_seafile_api_token(username = rstudioapi::showPrompt(title =
+  "username", message = "email"),
+  password = rstudioapi::askForPassword(),
   seafile_url = get_seafile_url())
 }
 \arguments{
@@ -19,10 +20,10 @@ ask_seafile_api_token(username = rstudioapi::askForPassword(prompt =
 a token as string
 }
 \description{
-ask for a token
+Ask seafile for a token
 }
 \examples{
 \dontrun{
-ask_seafile_api_token(seafile_url = "http://drop.legum.fr:8000/",username = "vincent@thinkr.fr")
+ask_seafile_api_token(seafile_url = "http://cloud.seafile.com",username = "vincent@thinkr.fr")
 }
 }

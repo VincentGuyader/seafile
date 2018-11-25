@@ -5,7 +5,7 @@
 seafile
 =======
 
-The goal of seafile is to connact to seafile API using R
+The goal of seafile is to connect to seafile API using R. This Is a partial implementation, PR welcome ;)
 
 Installation
 ------------

@@ -2,14 +2,20 @@
 % Please edit documentation in R/vrac2.R
 \name{create_dir_r}
 \alias{create_dir_r}
-\title{create_dir recursive}
+\title{Create directory in a seafile repos}
 \usage{
 create_dir_r(dir = "/", repos_id = get_repo_id(),
   seafile_url = get_seafile_url(), token = get_seafile_api_token())
 }
 \arguments{
-\item{token}{}
+\item{dir}{directory to create}
+
+\item{repos_id}{redos id}
+
+\item{seafile_url}{seafile url}
+
+\item{token}{seafile token}
 }
 \description{
-create_dir recursive
+Create directory in a seafile repos
 }

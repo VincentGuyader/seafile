@@ -2,15 +2,15 @@
 % Please edit documentation in R/vrac2.R
 \name{get_repo_id}
 \alias{get_repo_id}
-\title{Title}
+\title{Get repo is}
 \usage{
 get_repo_id(name = "My Library", ll = list_libraries())
 }
 \arguments{
 \item{name}{library name}
 
-\item{list_libraries}{all availables libraries}
+\item{ll}{all availables libraries see get_repo_id()}
 }
 \description{
-Title
+Get repo is
 }

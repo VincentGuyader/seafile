@@ -2,7 +2,7 @@
 % Please edit documentation in R/token.R
 \name{delete_seafile_api_token}
 \alias{delete_seafile_api_token}
-\title{delete_seafile_api_token}
+\title{Delete seafile api token}
 \usage{
 delete_seafile_api_token()
 }

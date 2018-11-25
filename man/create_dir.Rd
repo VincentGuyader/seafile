@@ -2,14 +2,20 @@
 % Please edit documentation in R/vrac2.R
 \name{create_dir}
 \alias{create_dir}
-\title{Title}
+\title{Create directory in a seafile repos}
 \usage{
 create_dir(dir = "/", repos_id = get_repo_id(),
   seafile_url = get_seafile_url(), token = get_seafile_api_token())
 }
 \arguments{
-\item{token}{}
+\item{dir}{directory to create}
+
+\item{repos_id}{redos id}
+
+\item{seafile_url}{seafile url}
+
+\item{token}{seafile token}
 }
 \description{
-Title
+Create directory in a seafile repos
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/vrac.R
 \name{ping}
 \alias{ping}
-\title{get ping using token}
+\title{Get ping using token}
 \usage{
 ping(seafile_url = get_seafile_url(), token = get_seafile_api_token())
 }
@@ -15,7 +15,7 @@ ping(seafile_url = get_seafile_url(), token = get_seafile_api_token())
 pong as string if OK
 }
 \description{
-get ping using token
+Get ping using token
 }
 \examples{
 \dontrun{

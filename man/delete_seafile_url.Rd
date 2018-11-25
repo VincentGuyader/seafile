@@ -2,7 +2,7 @@
 % Please edit documentation in R/url.R
 \name{delete_seafile_url}
 \alias{delete_seafile_url}
-\title{delete_seafile_url}
+\title{Delete seafile URL}
 \usage{
 delete_seafile_url()
 }

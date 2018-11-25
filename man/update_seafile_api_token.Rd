@@ -2,7 +2,7 @@
 % Please edit documentation in R/token.R
 \name{update_seafile_api_token}
 \alias{update_seafile_api_token}
-\title{update_seafile_api_token}
+\title{Update seafile api token}
 \usage{
 update_seafile_api_token()
 }

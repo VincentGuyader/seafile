@@ -2,7 +2,7 @@
 % Please edit documentation in R/vrac.R
 \name{list_libraries}
 \alias{list_libraries}
-\title{list libraries}
+\title{List libraries}
 \usage{
 list_libraries(seafile_url = get_seafile_url(),
   token = get_seafile_api_token())
@@ -16,5 +16,5 @@ list_libraries(seafile_url = get_seafile_url(),
 a data.frame
 }
 \description{
-list libraries
+List libraries
 }

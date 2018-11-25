@@ -2,15 +2,27 @@
 % Please edit documentation in R/token.R
 \name{set_seafile_api_token}
 \alias{set_seafile_api_token}
-\title{set_seafile_api_token}
+\title{Set seafile api token}
 \usage{
-set_seafile_api_token(token, username,
+set_seafile_api_token(token, username = rstudioapi::showPrompt(title =
+  "username", message = "email"),
   password = rstudioapi::askForPassword(),
   seafile_url = get_seafile_url())
 }
 \arguments{
 \item{token}{seafile api token}
+
+\item{username}{seafile username or email adress}
+
+\item{password}{seafile password}
+
+\item{seafile_url}{seafile base url}
 }
 \description{
 set the seafile api token
+}
+\examples{
+\dontrun{
+set_seafile_api_token(usename="mymail@domain.fr")
+}
 }

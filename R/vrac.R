@@ -1,4 +1,4 @@
-#' get ping using token
+#' Get ping using token
 #'
 #' @param seafile_url seafile base url
 #' @param token token
@@ -24,7 +24,8 @@ ping <-
   }
 
 
-
+#' @importFrom httr GET add_headers content
+#' @importFrom glue glue
 template_base <-
   function(base = "ping",
            seafile_url = get_seafile_url()  ,
@@ -40,7 +41,7 @@ template_base <-
 
 
 
-#' list libraries
+#' List libraries
 #'
 #' @param seafile_url seafile base url
 #' @param token seafil token
