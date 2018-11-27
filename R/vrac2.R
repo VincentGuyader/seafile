@@ -64,7 +64,7 @@ get_dir <- function(
   repos_id =get_repo_id(),
   seafile_url = get_seafile_url()  ,
   token = get_seafile_api_token()){
-
+  dir <- dir %>% str_replace_all(" ","+")
   template_repos(repos_id = repos_id,base = glue::glue("dir/?p={dir}"),seafile_url = seafile_url,token=token) %>% bind_rows()
 }
 
@@ -79,6 +79,7 @@ get_dir <- function(
 #'
 #' @export
 #' @importFrom glue glue
+#' @importFrom httr upload_file
 #' @examples
 #' \dontrun{
 #' upload_file(path = "file.txt",repos_id_destination = get_repo_id())
@@ -95,7 +96,7 @@ upload_file <- function(
 ){
 
   create_dir_r(dir = output_directory,repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
-
+message(glue::glue("upload de {basename(path)} dans {output_directory} "))
 httr::POST(
     url = upload_link,
     add_headers(Authorization = glue::glue("Token {token}")),
@@ -137,10 +138,10 @@ create_dir <- function(
 
 
 ){
-
+  dir <- dir %>% str_replace_all(" ","+")
   if ( ! does_path_exist(dir = dir,repos_id = repos_id,seafile_url = seafile_url,token = token)){
 
-
+message(glue::glue("creation de {dir}"))
   base <- glue::glue("dir/?p=/{dir}")
 
 
@@ -169,13 +170,16 @@ create_dir <- function(
 #' @export
 #' @importFrom magrittr %>%
 #' @importFrom purrr map map_chr
-#' @importFrom stringr str_split
+#' @importFrom stringr str_split str_replace_all
 create_dir_r <- function(dir="/",
                          repos_id =get_repo_id(),
                          seafile_url = get_seafile_url()  ,
-                         token = get_seafile_api_token()
+                         token = get_seafile_api_token(),
+                         sep="/"
 ){
-  b <- dir %>% str_split("/") %>% unlist()
+  dir <- dir %>% str_replace_all(" ","+")
+
+  b <- dir %>% str_split(sep) %>% unlist()
   mapply(seq,from= rep(1,length(b)),to= 1:length(b),by=1)  %>%
     map(~b[.x]) %>%
     map_chr(~paste(.x,collapse = "/")) %>%
@@ -197,7 +201,7 @@ does_path_exist <- function(dir="/",
                             repos_id =get_repo_id(),
                             seafile_url = get_seafile_url()  ,
                             token = get_seafile_api_token()){
-
+  dir <- dir %>% str_replace_all(" ","+")
  ncol(get_dir(dir = dir,
               repos_id = repos_id,seafile_url = seafile_url,
               token = token)) !=1

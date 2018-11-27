@@ -3,3 +3,4 @@
 ^README\.Rmd$
 ^seafile\.Rproj$
 ^\.Rproj\.user$
+^\.httr-oauth$

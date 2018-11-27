@@ -5,7 +5,8 @@
 \title{Create directory in a seafile repos}
 \usage{
 create_dir_r(dir = "/", repos_id = get_repo_id(),
-  seafile_url = get_seafile_url(), token = get_seafile_api_token())
+  seafile_url = get_seafile_url(), token = get_seafile_api_token(),
+  sep = "/")
 }
 \arguments{
 \item{dir}{directory to create}
