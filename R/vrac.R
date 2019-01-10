@@ -35,6 +35,10 @@ template_base <-
       glue::glue("{seafile_url}/api2/{base}/"),
       add_headers(Authorization = glue::glue("Token {token}"))
     )
+    if (r$status_code!=200){
+      stop(httr::content(r))
+    }
+
     httr::content(r)
 
   }
