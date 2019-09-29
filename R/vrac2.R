@@ -94,7 +94,13 @@ upload_file <- function(
   token = get_seafile_api_token(),
   upload_link = get_upload_link(repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
 ){
+if (!file.exists(path)){
+  message("fichier path inexistant")
+return(list(
+  path= path,
+  status_code = 999))
 
+}
   create_dir_r(dir = output_directory,repos_id = repos_id_destination,seafile_url = seafile_url,token = token)
 message(glue::glue("upload de {basename(path)} dans {output_directory} "))
 httr::POST(
